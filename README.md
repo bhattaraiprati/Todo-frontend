@@ -126,9 +126,17 @@ All protected routes (✅) require the following header:
 
 ## Demo & Screenshots
 
-- **Login Page**: Sleek glassmorphism design.
-- **Dashboard**: Clean list view with priority badges.
-- **Task Modal**: Intuitive form for task management.
+![Login page](src/assets/loginPage.png)
+![Register page](src/assets/RegisterPage.png)
+![Add Task](src/assets/AddTask.png)
+![Dashboard](src/assets/Dashboard.png)
+![Edit Task](src/assets/EditTask.png)
+![Delete Task](src/assets/DeleteTask.png)
+![Complete Task](src/assets/CompleteTask.png)
+
+
+
+
 
 ---
 
