@@ -53,7 +53,7 @@ cd TO-DO
 npm install
 
 # Create .env file
-touch .env
+ .env
 ```
 Add your environment variables to `.env` (see section below).
 
