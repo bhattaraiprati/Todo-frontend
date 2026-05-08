@@ -20,13 +20,13 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
 
   const data = await response.json()
 
-  // if(!response.ok) {
-  //   if (response.status === 401) {
-  //     authApi.logout()
-  //     window.location.href = '/login'
-  //   }
-  //    throw new Error(data.message || 'Something went wrong')
-  // }
+  if(!response.ok) {
+    if (response.status === 401) {
+      authApi.logout()
+      window.location.href = '/login'
+    }
+     throw new Error(data.message || 'Something went wrong')
+  }
 
   if (!response.ok) {
     throw new Error(data.message || 'Something went wrong')
@@ -68,6 +68,7 @@ export const authApi = {
   async logout() {
     localStorage.removeItem(TOKEN_KEY)
     localStorage.removeItem(USER_KEY)
+    window.location.href = '/login'
   },
 
   getStoredUser(): User | null {

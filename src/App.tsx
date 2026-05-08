@@ -4,6 +4,7 @@ import { useAuthStore } from '@/store/authStore'
 import { AuthPage } from '@/pages/AuthPage'
 import { DashboardPage } from '@/pages/DashboardPage'
 
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

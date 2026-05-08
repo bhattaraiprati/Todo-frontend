@@ -5,6 +5,7 @@ import { useTasks } from '@/hooks/useTasks'
 import { getTaskStats } from '@/lib/utils'
 import { Avatar } from '@/components/ui'
 import { cn } from '@/lib/utils'
+import LogoutModal from '../tasks/LogoutModal'
 
 interface NavItem {
   label: string
@@ -18,6 +19,7 @@ export function Sidebar() {
   const { filters, setFilters, sidebarOpen, setSidebarOpen } = useUIStore()
   const { data: tasks = [] } = useTasks()
   const stats = getTaskStats(tasks)
+  const {modal , openModal} = useUIStore()
 
   const navItems: NavItem[] = [
     { label: 'All tasks', icon: <LayoutDashboard className="w-4 h-4" />, filter: 'all', count: stats.total },
@@ -39,8 +41,9 @@ export function Sidebar() {
     setSidebarOpen(false)
   }
 
-  const logout=()=>{
-    clearAuth()
+  const logoutModal = ()=>{
+    openModal('logout')
+    
     setSidebarOpen(false)
   }
 
@@ -101,7 +104,7 @@ export function Sidebar() {
             <p className="text-xs truncate" style={{ color: 'var(--text-3)' }}>{user.email}</p>
           </div>
           <button
-            onClick={logout}
+            onClick={logoutModal}
             className="p-1.5 rounded-lg transition-colors hover:bg-red-50"
             style={{ color: 'var(--text-3)' }}
             title="Logout"
@@ -129,6 +132,8 @@ export function Sidebar() {
           </aside>
         </div>
       )}
+
+      {(modal === 'logout' ) && <LogoutModal />}
     </>
   )
 }

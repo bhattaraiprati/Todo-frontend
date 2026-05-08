@@ -31,10 +31,7 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
     loginMutation.mutate(data)
   }
 
-  const fillDemo = () => {
-    setValue('email', 'demo@taskly.com')
-    setValue('password', 'password123')
-  }
+
 
   return (
     <div className="w-full max-w-sm mx-auto">
@@ -98,15 +95,6 @@ export function LoginForm({ onSwitchToRegister }: LoginFormProps) {
           Sign in
         </Button>
       </form>
-
-      <button
-        type="button"
-        onClick={fillDemo}
-        className="w-full mt-3 py-2.5 text-sm rounded-xl border transition-colors"
-        style={{ borderColor: 'var(--border-strong)', color: 'var(--text-2)' }}
-      >
-        Use demo account
-      </button>
 
       <div className="mt-6 text-center text-sm" style={{ color: 'var(--text-2)' }}>
         Don't have an account?{' '}

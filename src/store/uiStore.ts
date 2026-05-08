@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { Task, TaskFilters } from '@/types'
 
-type ModalType = 'create' | 'edit' | 'delete' | null
+type ModalType = 'create' | 'edit' | 'delete'  | 'logout' | null
 
 interface UIState {
   filters: TaskFilters
