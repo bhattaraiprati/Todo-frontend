@@ -17,7 +17,7 @@ export function BottomNav() {
     { label: 'All', icon: LayoutDashboard, filter: 'all', badge: stats.total },
     { label: 'Pending', icon: Clock, filter: 'pending', badge: stats.pending },
     { label: 'Done', icon: CheckCircle2, filter: 'completed', badge: stats.completed },
-    { label: 'Profile', icon: User, filter: 'profile' },
+    // { label: 'Profile', icon: User, filter: 'profile' },
   ]
 
   return (

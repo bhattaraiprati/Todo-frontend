@@ -20,6 +20,14 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
 
   const data = await response.json()
 
+  // if(!response.ok) {
+  //   if (response.status === 401) {
+  //     authApi.logout()
+  //     window.location.href = '/login'
+  //   }
+  //    throw new Error(data.message || 'Something went wrong')
+  // }
+
   if (!response.ok) {
     throw new Error(data.message || 'Something went wrong')
   }
@@ -54,10 +62,6 @@ export const authApi = {
       body: JSON.stringify(creds),
     })
     
-    // After registration, the backend doesn't seem to return a token.
-    // Usually we log the user in automatically or redirect to login.
-    // For simplicity, let's assume registration is successful and then the user logs in.
-    // Or we can return a dummy and let the component handle it.
     return authApi.login({ email: creds.email, password: creds.password })
   },
 
@@ -110,7 +114,7 @@ export const tasksApi = {
 
   async toggleStatus(id: string): Promise<Task> {
     const data = await request<{ message: string; task: Task }>('/toggleStatus', {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify({taskId:id}),
     })
     return data.task
